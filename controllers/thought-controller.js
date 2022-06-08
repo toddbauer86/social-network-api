@@ -12,7 +12,7 @@ const thoughtController = {
   },
   getThoughtById(req, res) {
     Thought.findOne({ _id: req.params.id })
-      .populate({ path: "user", sselect: "-__v" })
+      .populate({ path: "user", select: "-__v" })
       .select("-__v")
       .then((userData) => {
         res.json(userData);
